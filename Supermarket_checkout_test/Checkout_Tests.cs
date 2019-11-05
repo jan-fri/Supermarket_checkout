@@ -1,8 +1,6 @@
 using NUnit.Framework;
-using Supermarket_checkout.Interfaces;
 using Supermarket_checkout.Models;
 using Supermarket_checkout.Services;
-using Moq;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,6 +19,15 @@ namespace Supermarket_checkout_test
         }
 
         [TestCase("A,B,C,D", 115)]
+        [TestCase("A,B,C,C,D", 135)]
+        [TestCase("A", 50)]
+        [TestCase("A,A,A", 130)]
+        [TestCase("A,A,A,A", 180)]
+        [TestCase("B,B", 45)]
+        [TestCase("B,A,B", 95)]
+        [TestCase("A,A,A,A,A,A", 260)]
+        [TestCase("A,A,A,A,A,A,A", 310)]
+        [TestCase("B,B,B,B,B", 120)]
         public void SumItems_ShouldReturnTotalPrice(string itemIds, int expectedTotalPrice)
         {
             //Arrange

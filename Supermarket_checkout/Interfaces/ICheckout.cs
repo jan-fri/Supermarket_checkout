@@ -1,7 +1,4 @@
 ﻿using Supermarket_checkout.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Supermarket_checkout.Interfaces
 {
