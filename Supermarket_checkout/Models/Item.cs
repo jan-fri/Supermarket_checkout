@@ -12,3 +12,4 @@ namespace Supermarket_checkout.Models
         public int SpecialPrice { get; set; }
     }
 }
+ 
