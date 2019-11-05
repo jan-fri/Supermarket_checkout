@@ -1,7 +1,8 @@
 using NUnit.Framework;
+using Supermarket_checkout.Interfaces;
 using Supermarket_checkout.Models;
 using Supermarket_checkout.Services;
-using System;
+using Moq;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,12 +10,13 @@ namespace Supermarket_checkout_test
 {
     public class Checkout_Tests
     {
-        private Checkout _checkout = new Checkout();
+        private Checkout _checkout;
         private List<Item> _itemList;
 
         [SetUp]
         public void Setup()
         {
+            _checkout = new Checkout();
             CreateItemList();
         }
 
