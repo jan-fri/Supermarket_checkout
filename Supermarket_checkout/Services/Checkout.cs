@@ -35,7 +35,7 @@ namespace Supermarket_checkout.Services
             foreach (var item in basketItemIdCount)
             {
                 var basketItem = basketItems.Where(x => x.Id == item.ItemId.Id).First();
-                totalPrice += basketItem.UnitSpecialPrice != 0
+                totalPrice += basketItem.ItemCountForSpecialPrice != 0
                     ? GetSpecialPrice(item.Count, basketItem)
                     : item.Count * basketItem.UnitPrice;
             }
@@ -45,10 +45,10 @@ namespace Supermarket_checkout.Services
 
         private int GetSpecialPrice(int itemCount, Item basketItem)
         {
-            var UnitSpecialCountMultiplier = itemCount / basketItem.UnitSpecialPrice;
+            var UnitSpecialCountMultiplier = itemCount / basketItem.ItemCountForSpecialPrice;
             var specialPrice = basketItem.SpecialPrice * UnitSpecialCountMultiplier;
 
-            var itemCountReminder = itemCount % basketItem.UnitSpecialPrice;
+            var itemCountReminder = itemCount % basketItem.ItemCountForSpecialPrice;
             var reminderPrice = itemCountReminder * basketItem.UnitPrice;
             return specialPrice + reminderPrice;
         }

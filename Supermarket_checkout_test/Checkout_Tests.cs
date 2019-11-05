@@ -61,8 +61,8 @@ namespace Supermarket_checkout_test
         {
             _itemList = new List<Item>
             {
-                new Item{ Id = "A", UnitPrice = 50, UnitSpecialPrice = 3, SpecialPrice = 130 },
-                new Item{ Id = "B", UnitPrice = 30, UnitSpecialPrice = 2, SpecialPrice = 45 },
+                new Item{ Id = "A", UnitPrice = 50, ItemCountForSpecialPrice = 3, SpecialPrice = 130 },
+                new Item{ Id = "B", UnitPrice = 30, ItemCountForSpecialPrice = 2, SpecialPrice = 45 },
                 new Item{ Id = "C", UnitPrice = 20 },
                 new Item{ Id = "D", UnitPrice = 15 }
             };
